@@ -1,11 +1,8 @@
-<!-- reference types: arrays, JS Objects. if a reference type data is updated -->
-<!-- in one component another component data is updated too... -->
-
-<!-- primitive types: number, string, boolean. if a primitive type data is updated -->
-<!-- in one component another component will not be affected... -->
 <template>
   <div>
-    <app-header v-bind:title="title"></app-header>
+    <!-- listening to the 'changeTitle' event fired from 'Header' compoenet... -->
+    <!-- '$event' is the data sent with the event... -->
+    <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>
     <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
     <hr>
     <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
@@ -36,6 +33,11 @@ export default {
           {name: 'Yoshi', speciality: 'Data Diggin', show: false}
       ],
       title: "Vue Ninjas"
+    }
+  },
+  methods: {
+    updateTitle: function(updatedTitle) {
+      this.title = updatedTitle;
     }
   }
 }
