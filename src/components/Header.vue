@@ -1,16 +1,26 @@
 <template>
   <div id="">
     <header>
-      <h1>{{title}}</h1>
+      <!-- Clicking 'h1' to update primitive data 'title' in only 'Header' -->
+      <!-- Component... -->
+      <h1 v-on:click="changeTitle">{{title}}</h1>
     </header>
   </div>
 </template>
 <script>
 export default {
   name: "",
-  data: () => ({
-    title: 'Vue Ninjas'
-  })
+  props: {
+    title: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    changeTitle: function() {
+      this.title = "Vue Wizards"
+    }
+  }
 }
 </script>
 <style scoped>

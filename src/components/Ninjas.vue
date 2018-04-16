@@ -6,25 +6,25 @@
         <h3 v-show="ninja.show">{{ninja.speciality}}</h3>
       </li>
     </ul>
+    <button type="button" v-on:click="deleteNinja">Delete Ninja</button>
   </div>
 </template>
 <script>
 export default {
-  // props can be used in the same way as the variable that are defined
-  // in the data()...
-  // This is a way to recieve props from a component....
-  // props: ['ninjas'],
-
-  // This is another way to recieve props...
   props: {
     ninjas: {
-      type: Array, // checking type of the sent data. helpful for dev...
-      required: true // the defined data have to sent from the another component...
+      type: Array,
+      required: true 
     }
   },
   data: () => ({
 
-  })
+  }),
+  methods: {
+    deleteNinja: function() {
+      this.ninjas = this.ninjas.pop();
+    }
+  }
 }
 </script>
 <style scoped>

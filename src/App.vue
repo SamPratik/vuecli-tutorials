@@ -1,10 +1,15 @@
+<!-- reference types: arrays, JS Objects. if a reference type data is updated -->
+<!-- in one component another component data is updated too... -->
+
+<!-- primitive types: number, string, boolean. if a primitive type data is updated -->
+<!-- in one component another component will not be affected... -->
 <template>
   <div>
-    <app-header></app-header>
-    <!-- sending 'ninjas' array as props to 'ninjas' compoenent... -->
-    <!-- 'v-bind' is used to bind the 'ninjas' props with 'ninjas' array... -->
-    <ninjas v-bind:ninjas="ninjas"></ninjas>
-    <app-footer></app-footer>
+    <app-header v-bind:title="title"></app-header>
+    <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
+    <hr>
+    <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
+    <app-footer v-bind:title="title"></app-footer>
   </div>
 </template>
 
@@ -18,11 +23,10 @@ export default {
   components: {
     'app-header': Header,
     'app-footer': Footer,
-    'ninjas': Ninjas
+    'app-ninjas': Ninjas
   },
   data() {
     return {
-      // this array will be sent as props to 'ninjas' component...
       ninjas: [
           {name: 'Ryu', speciality: 'Vue Components', show: false},
           {name: 'Crystal', speciality: 'HTML Wizardry', show: false},
@@ -30,7 +34,8 @@ export default {
           {name: 'Tango', speciality: 'Conditionals', show: false},
           {name: 'Kami', speciality: 'Webpack', show: false},
           {name: 'Yoshi', speciality: 'Data Diggin', show: false}
-      ]
+      ],
+      title: "Vue Ninjas"
     }
   }
 }
