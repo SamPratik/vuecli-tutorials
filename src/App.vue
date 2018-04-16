@@ -6,10 +6,14 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+// registering 'Ninjas' component locally...
+import Ninjas from './components/Ninjas.vue'
 
 export default {
   name: 'app',
+  components: {
+    'ninjas': Ninjas
+  },
   data() {
     return {
       title: 'You first Vue App'
