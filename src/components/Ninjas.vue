@@ -10,15 +10,20 @@
 </template>
 <script>
 export default {
+  // props can be used in the same way as the variable that are defined
+  // in the data()...
+  // This is a way to recieve props from a component....
+  // props: ['ninjas'],
+
+  // This is another way to recieve props...
+  props: {
+    ninjas: {
+      type: Array, // checking type of the sent data. helpful for dev...
+      required: true // the defined data have to sent from the another component...
+    }
+  },
   data: () => ({
-    ninjas: [
-        {name: 'Ryu', speciality: 'Vue Components', show: false},
-        {name: 'Crystal', speciality: 'HTML Wizardry', show: false},
-        {name: 'Hitoshi', speciality: 'Click Events', show: false},
-        {name: 'Tango', speciality: 'Conditionals', show: false},
-        {name: 'Kami', speciality: 'Webpack', show: false},
-        {name: 'Yoshi', speciality: 'Data Diggin', show: false}
-    ]
+
   })
 }
 </script>

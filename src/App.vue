@@ -1,7 +1,9 @@
 <template>
   <div>
     <app-header></app-header>
-    <ninjas></ninjas>
+    <!-- sending 'ninjas' array as props to 'ninjas' compoenent... -->
+    <!-- 'v-bind' is used to bind the 'ninjas' props with 'ninjas' array... -->
+    <ninjas v-bind:ninjas="ninjas"></ninjas>
     <app-footer></app-footer>
   </div>
 </template>
@@ -19,7 +21,17 @@ export default {
     'ninjas': Ninjas
   },
   data() {
-
+    return {
+      // this array will be sent as props to 'ninjas' component...
+      ninjas: [
+          {name: 'Ryu', speciality: 'Vue Components', show: false},
+          {name: 'Crystal', speciality: 'HTML Wizardry', show: false},
+          {name: 'Hitoshi', speciality: 'Click Events', show: false},
+          {name: 'Tango', speciality: 'Conditionals', show: false},
+          {name: 'Kami', speciality: 'Webpack', show: false},
+          {name: 'Yoshi', speciality: 'Data Diggin', show: false}
+      ]
+    }
   }
 }
 </script>
