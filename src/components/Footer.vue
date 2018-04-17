@@ -20,7 +20,9 @@ export default {
     copyright: 'Copyright 2017 @'
   }),
   created() {
-    //do something after creating vue instance
+    //do something after creating vue instance...
+    // Listening to the event fired from 'Header' component and using the
+    // data sent from 'Header' component to update the 'title'...
     bus.$on('changeTitle', (data) => {
       this.title = data;
     });

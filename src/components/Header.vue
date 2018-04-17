@@ -17,8 +17,11 @@ export default {
     }
   },
   methods: {
+    // firing event on the bus...
     changeTitle: function() {
       this.title = "Vue Wizards";
+      // sending data with the event so that the title of recepient component
+      // can change the title to this data...
       bus.$emit('changeTitle', 'Vue Wizards');
     }
   }
