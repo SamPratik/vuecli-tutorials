@@ -1,8 +1,6 @@
 <template>
   <div>
-    <!-- listening to the 'changeTitle' event fired from 'Header' compoenet... -->
-    <!-- '$event' is the data sent with the event... -->
-    <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>
+    <app-header v-bind:title="title"></app-header>
     <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
     <hr>
     <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
@@ -39,6 +37,38 @@ export default {
     updateTitle: function(updatedTitle) {
       this.title = updatedTitle;
     }
+  },
+  // Life cycle hooks
+  beforeCreate() {
+    //do something before creating vue instance
+    alert('beforeCreate');
+  },
+  created() {
+    //do something after creating vue instance...
+    // have access to data in this hook. fetching data from database occurs here...
+    alert('created');
+  },
+  beforeMount() {
+    //do something before mounting vue instance
+    alert('beforeMount');
+  },
+  mounted: function () {
+    this.$nextTick(function () {
+      // Code that will run only after the
+      // entire view has been rendered...
+      alert('mounted');
+    })
+  },
+  beforeUpdate() {
+    //do something before updating vue instance
+    alert('beforeUpdate');
+  },
+  updated: function () {
+    this.$nextTick(function () {
+      // Code that will run only after the
+      // entire view has been re-rendered
+      alert('updated');
+    })
   }
 }
 </script>
