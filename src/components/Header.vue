@@ -6,6 +6,8 @@
   </div>
 </template>
 <script>
+import {bus} from '../main';
+
 export default {
   name: "",
   props: {
@@ -16,15 +18,8 @@ export default {
   },
   methods: {
     changeTitle: function() {
-      // '$emit' will fire an event from this component which will be
-      // listened in the parent component so that the parent component
-      // can update the 'title'. as a result every ither child component
-      // which are using this 'title' as props from parent component gets
-      // re-rendered and show the updated 'title' value...
-
-      // first argument: name of the event
-      // second argument: data(value of title) which will be passed with the event...
-      this.$emit('changeTitle', 'Vue Wizards');
+      this.title = "Vue Wizards";
+      bus.$emit('changeTitle', 'Vue Wizards');
     }
   }
 }

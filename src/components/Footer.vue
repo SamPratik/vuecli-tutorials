@@ -6,6 +6,8 @@
   </div>
 </template>
 <script>
+import {bus} from '../main';
+
 export default {
   name: "",
   props: {
@@ -16,7 +18,13 @@ export default {
   },
   data: () => ({
     copyright: 'Copyright 2017 @'
-  })
+  }),
+  created() {
+    //do something after creating vue instance
+    bus.$on('changeTitle', (data) => {
+      this.title = data;
+    });
+  }
 }
 </script>
 <style scoped>
