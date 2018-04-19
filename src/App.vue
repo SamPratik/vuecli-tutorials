@@ -1,6 +1,8 @@
 <template>
   <div>
-      <component v-bind:is="component"></component>
+      <keep-alive>
+          <component v-bind:is="component"></component>
+      </keep-alive>
       <button type="button" v-on:click="component = 'form-one'">Form One</button>
       <button type="button" v-on:click="component = 'form-two'">Form Two</button>
   </div>
