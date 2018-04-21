@@ -1,19 +1,9 @@
 <template>
-  <!-- Directive Values... -->
-  <!-- whatever goes after '=' sign of a directive is called value which -->
-  <!-- is accessible through 'binding.value'... -->
-  <!-- string values need to be defined inside quotation... -->
-  <!-- values can be any type 'object', 'array' etc... -->
-
-  <!-- Directive Arguments... -->
-  <!-- whatever goes after ':' of a directive name is called argument... -->
-  <!-- It can be accessed using 'binding.arg'... -->
-
-  <div v-theme:column="'narrow'" id="show-blogs">
+  <div id="show-blogs">
       <h1>All Blog Articles</h1>
       <div v-for="blog in blogs" class="single-blog">
-          <h2 v-rainbow>{{ blog.title }}</h2>
-          <article>{{ blog.body }}</article>
+          <h2>{{ blog.title | to-uppercase }}</h2>
+          <article>{{ blog.body | snippet }}</article>
       </div>
   </div>
 </template>

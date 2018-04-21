@@ -5,35 +5,15 @@ import VueResource from 'vue-resource'
 Vue.config.productionTip = false
 Vue.use(VueResource);
 
-// Custom Directives...
-// registering directives globally so that all components can use this directive...
-// if 'v-rainbow' directive is attached to any HTML element then this functionality
-// will be attached with that HTML element...
-Vue.directive('rainbow', {
-    // bind is a lifecycle hook which is fired when the directive gets
-    // attached to a HTML element...
-    // 'el' is the element with which the directive is attached to...
-    // 'binding' is a object which holds the information about the directive
-    // we can access values, args of the directive using this 'binding'...
-    bind(el, binding, vnode) {
-        // giving random colors to all the article title...
-        el.style.color = '#' + Math.random().toString().slice(2,8);
-    }
+// Custom Filters...
+// 'value' is the data on which this filter is applied to...
+// 'filter' doesn't change the real data it just chages the output on the DOM...
+Vue.filter('to-uppercase', function(value) {
+    return value.toUpperCase();
 });
 
-Vue.directive('theme', {
-    bind(el, binding, vnode) {
-        if(binding.value == 'wide') {
-            el.style.maxWidth = '1200px';
-        }
-        if(binding.value == 'narrow') {
-          el.style.maxWidth = '560px';
-        }
-        if(binding.arg == 'column') {
-            el.style.background = '#ddd';
-            el.style.padding = '20px';
-        }
-    }
+Vue.filter('snippet', function(value) {
+    return value.slice(0,100) + '...';
 });
 
 export const bus = new Vue();
