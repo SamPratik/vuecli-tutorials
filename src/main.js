@@ -9,7 +9,8 @@ Vue.use(VueResource);
 Vue.use(VueRouter);
 
 const Router = new VueRouter({
-  routes: Routes
+  routes: Routes,
+  mode: 'history'
 });
 
 Vue.filter('snippet', function(value) {
